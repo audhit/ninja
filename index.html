@@ -1,6 +1,25 @@
-<html>
-	<body>
-		<head></head>
-		<h1>My first commit from my pc for angular ninja tuts !!</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+
+<head>
+    <title>TheNetNinja Angular Playlist</title>
+    <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="content/app/app.js"></script>
+</head>
+
+<body>
+    <header ng-include="'content/header.html'"></header>
+    <div class="content">
+        <div ng-controller="mycon1">
+            <input type="text" ng-model="search">
+            <ul>
+                <li ng-repeat="record in records | filter:search">
+                    {{record.name}} - {{record.rate}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
 </html>
