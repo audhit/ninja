@@ -1,0 +1,19 @@
+<div class="content">
+    <button ng-click="order='name'">Order by Name</button>
+    <button ng-click="order='belt'">Order by Belt</button>
+    <input type="text" ng-model="search" placeholder="Search a record">
+    <ul>
+        <li ng-repeat="record in records | orderBy: order | filter:search">
+            <h3>{{record.name}} - {{record.rate}}</h3>
+            <div class="remove" ng-click="recordRemove(record)">X</div>
+            <span class="belt" style="background:{{record.color}}">is {{record.belt}}</span>
+        </li>
+    </ul>
+    <form ng-submit="addRecord()">
+        <input type="text" ng-model="newrecord.name" placeholder="Name">
+        <input type="text" ng-model="newrecord.belt" placeholder="Belt">
+        <input type="text" ng-model="newrecord.color" placeholder="Color">
+        <input type="text" ng-model="newrecord.rate" placeholder="Rate">
+        <input type="submit" value="Add Record">
+    </form>
+</div>
