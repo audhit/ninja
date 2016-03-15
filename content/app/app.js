@@ -16,7 +16,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
-app.controller('mycon1', function($scope) {
+app.controller('mycon1', function($scope, $http) {
 
     $scope.recordRemove = function(record) {
 
@@ -41,29 +41,11 @@ app.controller('mycon1', function($scope) {
         $scope.newrecord.rate = "";
     };
 
-    $scope.records = [
+    	$http.get('content/data/records.json').success(function(data){
 
-        {
-            name: "Aparupa",
-            belt: "sexy",
-            color: "red",
-            rate: 2000
-        },
+    		$scope.records = data;
 
-        {
-            name: "Saif",
-            belt: "shit",
-            color: "blue",
-            rate: 1000
-        },
+    	});
 
-        {
-            name: "Chotku",
-            belt: "cool",
-            color: "green",
-            rate: 5000
-        }
-
-    ];
 
 });
