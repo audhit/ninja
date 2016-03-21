@@ -4,7 +4,8 @@ app.config(['$routeProvider', function($routeProvider) {
 
     $routeProvider
         .when('/home', {
-            templateUrl: 'content/home.html'
+            templateUrl: 'content/home.html',
+            controller: 'mycon1'
         })
         .when('/list', {
             templateUrl: 'content/directory.html',
@@ -14,6 +15,25 @@ app.config(['$routeProvider', function($routeProvider) {
             redirectTo: '/home'
         });
 
+}]);
+
+app.directive('recordName', [function(){
+	
+	return {
+		restrict: 'E',
+		scope: {
+			title: '=',
+			singlename:  '='
+		},
+
+		templateUrl: 'content/view-record.html',
+		transclude:true,
+		replace:true,
+		controller: function($scope){
+		 	$scope.randomNumber = Math.floor(Math.random() * 3);
+		} 
+	
+	};
 }]);
 
 app.controller('mycon1', function($scope, $http) {
