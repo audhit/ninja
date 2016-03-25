@@ -149,3 +149,13 @@ ul li.ng-leave.ng-leave-active {
   opacity:0;
   transform: translateX(100%);
 }
+
+ul li.ng-enter-stagger {
+  transition-delay: 1s;
+  transition-duration: 0;
+}
+
+ul li.ng-leave-stagger {
+  transition-delay: 1s;
+  transition-duration: 0;
+}

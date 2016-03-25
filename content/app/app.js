@@ -38,6 +38,8 @@ app.directive('recordName', [function(){
 
 app.controller('mycon1', function($scope, $http) {
 
+	$scope.toggle = true;
+
     $scope.recordRemove = function(record) {
 
         var removedRecord = $scope.records.indexOf(record);
@@ -61,11 +63,23 @@ app.controller('mycon1', function($scope, $http) {
         $scope.newrecord.rate = "";
     };
 
-    	$http.get('content/data/records.json').success(function(data){
+    $scope.removeAll = function(){
+    	$scope.records = [];
+    };
 
-    		$scope.records = data;
 
-    	});
+    $http.get('content/data/records.json').success(function(data){
+
+    	$scope.records = data;
+
+    });
+
+    $scope.showAll = function(){
+    	location.reload();
+    	
+    };
+
+    
 
 
 });

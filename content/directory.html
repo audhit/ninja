@@ -16,4 +16,7 @@
         <input type="text" ng-model="newrecord.rate" placeholder="Rate">
         <input type="submit" value="Add Record">
     </form>
+    <button ng-show="toggle" ng-click="removeAll(); toggle = false">Remove All Records</button>
+    <button ng-show="!toggle" ng-click="showAll();  toggle = true">Show All Records</button>
+    
 </div>
