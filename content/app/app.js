@@ -7,6 +7,9 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'content/home.html',
             controller: 'mycon1'
         })
+        .when('/contact', {
+            templateUrl: 'content/contact.html'
+        })
         .when('/list', {
             templateUrl: 'content/directory.html',
             controller: 'mycon1'
